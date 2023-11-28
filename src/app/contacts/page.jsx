@@ -19,7 +19,7 @@ const Contacts = () => {
     };
     return (
         <div className={styles.container} >
-            <h2 className={styles.title}>Let's Keep in Touch</h2>
+            <h2 className={styles.title}>Let&apos;s Keep in Touch</h2>
             <div className={styles.content}>
                 <div className={styles.imageContainer}>
                     <Image

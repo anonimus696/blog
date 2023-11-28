@@ -4,7 +4,7 @@ import styles from './page.module.scss'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 
-function page() {
+function Page() {
 
     const router = useRouter();
 
@@ -24,7 +24,7 @@ function page() {
             </div>
             <div className={styles.title}>Success</div>
             <div className={styles.text}>
-                We received your purchase request we'll be in touch shortly!
+                We received your purchase request we&apos;ll be in touch shortly!
             </div>
             <button className={`${styles.button} button`} onClick={backHome}> Home</button>
         </div>
@@ -32,4 +32,4 @@ function page() {
     )
 }
 
-export default page
+export default Page
