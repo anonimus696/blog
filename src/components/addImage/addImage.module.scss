@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.photoCont{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.label{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: green;
+    border: none;
+    &:hover{
+        background-color: rgb(5, 163, 5);
+    }
+    }
+
+    
+@media (max-width: 767.98px) {
+    .label{
+        padding: 10px;
+    }
+
+}
+    
+    .progress {
+        width: 30%;
+        height: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .previewContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+    
+    .deleteBut{
+    position: absolute;
+    top: -5px;
+    left: 105px;
+    color: red;
+    cursor: pointer;
+    }
+    .err{
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+
+        color: red;
+        font-size: 12px;
+        margin-top: -10px;
+    }
+

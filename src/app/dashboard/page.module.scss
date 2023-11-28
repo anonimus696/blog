@@ -1,0 +1,131 @@
+.container{
+display: flex;
+gap: 80px;
+align-items: center;
+}
+
+@media (max-width: 997.98px) {
+    .container{
+        flex-direction: column-reverse;
+        gap: 50px;
+        }
+}
+
+.posts{
+    flex: 1;
+}
+
+.post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 50px 0;
+}
+
+.imageContainer{
+    position: relative;
+    height: 150px;
+    width: 250px;
+}
+@media (max-width: 767.98px) {
+    .posts{
+       width: 100%;
+    }
+    .post{
+        flex-direction: column-reverse;
+        gap: 15px;
+        width: 100%;
+    }
+}
+
+.img{
+    object-fit: cover;
+}
+
+.delete{
+    cursor: pointer;
+    color: red;
+}
+
+.new{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 767.98px) {
+    .new{
+        max-width: 100%;
+    }
+}
+
+.author{
+    position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.photoCont{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.contentContainer{
+    display: flex;
+    width: 250px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.postTitle{
+    white-space: pre-wrap;
+    max-width: 230px;
+    overflow-wrap: break-word;
+}
+
+
+
+.input, 
+.textarea{
+    padding: 20px;
+    background-color: transparent;
+    outline: none;
+    border: 3px solid #bbb;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+    color: #bbb;
+    &:focus{
+        border: none;
+        border: 3px solid #53c28b;
+    }
+}
+
+
+.button{
+    padding: 20px;
+    width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .input, 
+    .textarea{
+        padding: 10px;
+    }
+    .button{
+        padding: 15px;
+    }
+}
+.disabled{
+    opacity: 0.5;
+}
+
+

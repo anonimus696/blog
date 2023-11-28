@@ -1,0 +1,102 @@
+.container{
+
+}
+
+.title{
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.imageContainer{
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+.image{
+    object-fit: contain;
+    animation: move 3s infinite ease alternate;
+}
+
+@media (max-width: 997.98px) {
+    .content{
+        gap: 50px;
+    }
+
+    .imageContainer{
+        flex: 1 1 auto;
+        height: 300px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .title{
+        font-size: 40px;
+    }
+
+    .content{
+        flex-direction: column-reverse;
+    }
+}
+
+@keyframes move {
+    from{
+        transform: translateY(-15px);
+    }
+    to{
+        transform: translateY(0px) scale(1.03);
+    }
+}
+
+.form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 767.98px) {
+    .form{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 100%;
+    }
+}
+
+.input, 
+.textarea{
+    padding: 20px;
+    background-color: transparent;
+    outline: none;
+    border: 3px solid #bbb;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+    color: #bbb;
+    &:focus{
+        border: none;
+        border: 3px solid #53c28b;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .input, 
+    .textarea{
+        padding: 10px;
+    }
+}
+
+.button{
+    width: 100%;
+    padding: 20px;
+}

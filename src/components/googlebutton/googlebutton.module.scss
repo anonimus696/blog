@@ -1,0 +1,14 @@
+.buttonred{
+    background-color: rgb(247, 104, 128);
+
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+&:hover{
+    background-color: rgb(250, 73, 103);
+}
+}

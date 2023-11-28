@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.title{
+    font-size: 40px;
+    color: #53c28b;
+}
+.imgContainer{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.button{
+    padding: 20px 40px;
+}
