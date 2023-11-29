@@ -4,15 +4,20 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 async function getData(id) {
-    const res = await fetch(process.env.URL + `/api/posts/${id}`, {
-        cache: "no-store",
-    })
+    try {
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts/${id}`, {
+            cache: "no-store",
+        })
 
-    if (!res.ok) {
-        return notFound()
+        if (!res.ok) {
+            return notFound()
+        }
+
+        return res.json()
+
+    } catch (error) {
+        return null
     }
-
-    return res.json()
 }
 
 export async function generateMetadata({ params }) {

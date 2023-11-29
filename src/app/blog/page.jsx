@@ -6,15 +6,21 @@ import Link from 'next/link';
 
 
 async function getData() {
-    const res = await fetch(process.env.URL + '/api/posts', {
-        cache: "no-store",
-    })
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
+    try {
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`, {
+            cache: "no-store",
+        })
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch data')
+        }
+
+        return res.json()
+
+    } catch (error) {
+        return null
     }
-
-    return res.json()
 }
 
 const Blog = async () => {
