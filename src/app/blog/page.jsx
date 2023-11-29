@@ -1,10 +1,12 @@
+'use client'
 import React from 'react';
 import styles from './page.module.scss';
 import Button from '@/components/buttion/Button';
 import Image from 'next/image';
 import Link from 'next/link';
+import useSWR from "swr";
 
-
+/*
 async function getData() {
 
     try {
@@ -23,10 +25,15 @@ async function getData() {
         return null
     }
 }
+*/
+// const Blog = async () => {
+const Blog = () => {
 
-const Blog = async () => {
+    // const data = await getData();
 
-    const data = await getData();
+    const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+    const { data, mutate, error, isLoading } = useSWR(`/api/posts`, fetcher);
 
     if (!data) {
         // Якщо дані нульові, можна виконати обробку або показати пустий стан
