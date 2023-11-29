@@ -1,25 +1,26 @@
+'use client'
 import React from 'react'
 import styles from './page.module.scss'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import useSWR from "swr";
 
+
+/*
 async function getData(id) {
-    try {
-        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts/${id}`, {
-            cache: "no-store",
-        })
+    const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${id}`, {
+        cache: "no-store",
+    })
 
-        if (!res.ok) {
-            return notFound()
-        }
-
-        return res.json()
-
-    } catch (error) {
-        return null
+    if (!res.ok) {
+        return notFound()
     }
-}
 
+    return res.json()
+}
+*/
+
+/*
 export async function generateMetadata({ params }) {
 
     const post = await getData(params.id)
@@ -28,10 +29,25 @@ export async function generateMetadata({ params }) {
         description: post.desc,
     }
 }
-
+*/
+/*
 const BlogPost = async ({ params }) => {
 
     const data = await getData(params.id)
+*/
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+const BlogPost = ({ params }) => {
+    const { data, error } = useSWR(`/api/posts/${params.id}`, fetcher);
+
+    if (error) {
+        return <div>Помилка завантаження даних</div>;
+    }
+
+    if (!data) {
+        return <div>Завантаження...</div>;
+    }
 
     return (
         <div className={styles.container}>
