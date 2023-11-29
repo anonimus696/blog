@@ -16,7 +16,7 @@ async function getData(id) {
         return res.json()
 
     } catch (error) {
-        return null
+        return res.json()
     }
 }
 
