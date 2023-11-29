@@ -19,7 +19,7 @@ async function getData() {
         return res.json()
 
     } catch (error) {
-        return res.json()
+        return null
     }
 }
 
