@@ -26,6 +26,11 @@ async function getData() {
 const Blog = async () => {
 
     const data = await getData();
+
+    if (!data) {
+        // Якщо дані нульові, можна виконати обробку або показати пустий стан
+        return <div>No data available</div>;
+    }
     return (
         < div className={styles.container} >
             {
