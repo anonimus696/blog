@@ -35,9 +35,12 @@ const Blog = () => {
 
     const { data, mutate, error, isLoading } = useSWR(`/api/posts`, fetcher);
 
+    if (error) {
+        return <div>Data error</div>;
+    }
+
     if (!data) {
-        // Якщо дані нульові, можна виконати обробку або показати пустий стан
-        return <div>No data available</div>;
+        return <div>Loading...</div>;
     }
     return (
         < div className={styles.container} >

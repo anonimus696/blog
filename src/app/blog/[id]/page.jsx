@@ -42,11 +42,11 @@ const BlogPost = ({ params }) => {
     const { data, error } = useSWR(`/api/posts/${params.id}`, fetcher);
 
     if (error) {
-        return <div>Помилка завантаження даних</div>;
+        return <div>Data error</div>;
     }
 
     if (!data) {
-        return <div>Завантаження...</div>;
+        return <div>Loading...</div>;
     }
 
     return (
