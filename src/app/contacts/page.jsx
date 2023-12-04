@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.scss'
 import Image from 'next/image'
 import Button from '@/components/buttion/Button'
@@ -12,11 +12,40 @@ export const metadata = {
 */
 const Contacts = () => {
     const router = useRouter();
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    })
+    useEffect(() => {
+        console.log(data);
+    }, [data])
+
+    const sendMail = async (e) => {
+        e.preventDefault();
+
+        const res = await fetch('/api/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+
+        if (res.status === 200) {
+            setData({})
+            router.push('/contacts/succsess')
+        }
+    };
+
+    /*
+    const router = useRouter();
 
     const sendForm = async (e) => {
         e.preventDefault();
         router.push('/contacts/succsess')
     };
+    */
     return (
         <div className={styles.container} >
             <h2 className={styles.title}>Let&apos;s Keep in Touch</h2>
@@ -29,14 +58,15 @@ const Contacts = () => {
                         className={styles.image}
                     />
                 </div>
-                <form className={styles.form} onSubmit={sendForm}>
-                    <input type="text" placeholder='name*' className={styles.input} required />
-                    <input type="text" placeholder='email*' className={styles.input} required />
+                <form className={styles.form} onSubmit={sendMail}>
+                    <input type="text" placeholder='name*' className={styles.input} onChange={(e) => setData({ ...data, name: e.target.value })} required />
+                    <input type="text" placeholder='email*' className={styles.input} onChange={(e) => setData({ ...data, email: e.target.value })} required />
                     <textarea
                         placeholder='message'
                         cols="30"
                         rows="10"
                         className={styles.textarea}
+                        onChange={(e) => setData({ ...data, message: e.target.value })}
                     ></textarea>
                     <button className={`${styles.button} button`}> Send</button>
                 </form>
