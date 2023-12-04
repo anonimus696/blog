@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './page.module.scss'
 import Image from 'next/image'
 import Button from '@/components/buttion/Button'
@@ -17,9 +17,6 @@ const Contacts = () => {
         email: '',
         message: '',
     })
-    useEffect(() => {
-        console.log(data);
-    }, [data])
 
     const sendMail = async (e) => {
         e.preventDefault();
