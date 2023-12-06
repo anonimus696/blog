@@ -1,9 +1,9 @@
 
-export const EmailTemplate = ({ firstName }) => (
+export const EmailTemplate = ({ firstName, message }) => (
     <div>
-        <h1>Welcome, {firstName}!</h1>
+        <h2>Welcome, {firstName}!</h2>
         <p>Thank you for sending a message</p>
-        <p>Tu pidor ❤</p>
+        <p>Your message: {message}</p>
     </div>
 );
 

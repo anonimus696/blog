@@ -14,7 +14,7 @@ export async function POST(request) {
             from: 'Form send <support@mainblog.space>',
             to: email,
             subject: 'The best site team',
-            react: EmailTemplate({ firstName: name }),
+            react: EmailTemplate({ firstName: name, message }),
         })
 
 
